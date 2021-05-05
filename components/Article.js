@@ -132,6 +132,12 @@ function articleMaker(artObj){
   article.appendChild(p3);
   article.appendChild(expandButton);
 
+  title.textContent = data.title;
+  data.textContent = data.date;
+  p1.textContent = data.firstParagraph;
+  p2.textContent = data.secondParagraph;
+  p3.textContent = data.thirdParagraph;
+
   article.classList.add('article');
   date.classList.add('date');
   expandButton.classList.add('expandButton');
