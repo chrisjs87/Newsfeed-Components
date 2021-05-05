@@ -132,5 +132,9 @@ function articleMaker(artObj){
   article.appendChild(p3);
   article.appendChild(expandButton);
 
+  article.classList.add('article');
+  date.classList.add('date');
+  expandButton.classList.add('expandButton');
+
   return article;
 }
