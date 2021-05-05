@@ -136,5 +136,9 @@ function articleMaker(artObj){
   date.classList.add('date');
   expandButton.classList.add('expandButton');
 
+  expandButton.addEventListener('click', (event) => {
+    article.classList.toggle('article-open');
+  });
+
   return article;
 }
