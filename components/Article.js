@@ -115,31 +115,31 @@ const data = [
   Refresh the page to see the new article.
 */
 
-
-function articleMaker(artObj){
+//test by swapping key names and doing just a generic obj name
+function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph }){
   const article = document.createElement('div');
-  const title = document.createElement('h2');
-  const date = document.createElement('p');
+  const titleH = document.createElement('h2');
+  const dateP = document.createElement('p');
   const p1 = document.createElement('p');
   const p2 = document.createElement('p');
   const p3 = document.createElement('p');
   const expandButton = document.createElement('span');
 
-  article.appendChild(title);
-  article.appendChild(date);
+  article.appendChild(titleH);
+  article.appendChild(dateP);
   article.appendChild(p1);
   article.appendChild(p2);
   article.appendChild(p3);
   article.appendChild(expandButton);
 
-  title.textContent = data.title;
-  data.textContent = data.date;
-  p1.textContent = data.firstParagraph;
-  p2.textContent = data.secondParagraph;
-  p3.textContent = data.thirdParagraph;
+  titleH.textContent = title;
+  dateP.textContent = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
 
   article.classList.add('article');
-  date.classList.add('date');
+  dateP.classList.add('date');
   expandButton.classList.add('expandButton');
 
   expandButton.addEventListener('click', (event) => {
