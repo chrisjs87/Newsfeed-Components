@@ -86,6 +86,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'test',
+    date: 'test date',
+    firstParagraph: 'first paragraph',
+    secondParagraph: 'second paragraph',
+    thirdParagraph: 'third paragraph'
   }
 ];
 
@@ -137,6 +144,7 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
   p1.textContent = firstParagraph;
   p2.textContent = secondParagraph;
   p3.textContent = thirdParagraph;
+  expandButton.textContent = '+';
 
   article.classList.add('article');
   dateP.classList.add('date');
@@ -148,3 +156,13 @@ function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParag
 
   return article;
 }
+
+const feed = document.querySelector('div.articles');
+
+const myArticlesArray = data.map((articleItem) => {
+  return articleMaker(articleItem);
+})
+
+myArticlesArray.forEach((article) => {
+  feed.appendChild(article);
+});
