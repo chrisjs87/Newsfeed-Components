@@ -86,6 +86,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'test',
+    date: 'test date',
+    firstParagraph: 'first paragraph',
+    secondParagraph: 'second paragraph',
+    thirdParagraph: 'third paragraph'
   }
 ];
 
@@ -114,3 +121,48 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
+
+//test by swapping key names and doing just a generic obj name
+function articleMaker({ title, date, firstParagraph, secondParagraph, thirdParagraph }){
+  const article = document.createElement('div');
+  const titleH = document.createElement('h2');
+  const dateP = document.createElement('p');
+  const p1 = document.createElement('p');
+  const p2 = document.createElement('p');
+  const p3 = document.createElement('p');
+  const expandButton = document.createElement('span');
+
+  article.appendChild(titleH);
+  article.appendChild(dateP);
+  article.appendChild(p1);
+  article.appendChild(p2);
+  article.appendChild(p3);
+  article.appendChild(expandButton);
+
+  titleH.textContent = title;
+  dateP.textContent = date;
+  p1.textContent = firstParagraph;
+  p2.textContent = secondParagraph;
+  p3.textContent = thirdParagraph;
+  expandButton.textContent = '+';
+
+  article.classList.add('article');
+  dateP.classList.add('date');
+  expandButton.classList.add('expandButton');
+
+  expandButton.addEventListener('click', (event) => {
+    article.classList.toggle('article-open');
+  });
+
+  return article;
+}
+
+const feed = document.querySelector('div.articles');
+
+const myArticlesArray = data.map((articleItem) => {
+  return articleMaker(articleItem);
+})
+
+myArticlesArray.forEach((article) => {
+  feed.appendChild(article);
+});
